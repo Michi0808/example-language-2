@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import LangHeader from './components/LangHeader';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [lang, setLang] = useState('English');
+
+  const toggleLang = (e) => {
+    const newLang = e.target.value;
+    setLang(newLang);
+  }
 
   return (
-    <>
-
-    </>
+    <LangHeader lang={lang} toggleLang={toggleLang} />
   )
 }
 
