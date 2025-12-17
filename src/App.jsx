@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LangHeader from './components/LangHeader';
+import { LangContext } from './generateContext';
 
 function App() {
   const [lang, setLang] = useState('English');
@@ -10,7 +11,11 @@ function App() {
   }
 
   return (
-    <LangHeader lang={lang} toggleLang={toggleLang} />
+    // Wrap the component tree with the Provider
+    <LangContext.Provider value={{ lang, toggleLang }}>
+      {/* No need to pass props down anymore. */}
+      <LangHeader />
+    </LangContext.Provider>
   )
 }
 

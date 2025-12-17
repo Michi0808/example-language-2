@@ -1,7 +1,12 @@
 import React from 'react'
+import { useContext } from 'react';
+import { LangContext } from '../generateContext';
 
-export default function LangContent({ lang, toggleLang }) {
+export default function LangContent(  ) {
   const LANGUAGES = ['English', 'German', 'Japanese'];
+
+  // Now you can read the values provided by the nearest Provider.
+  const { lang, toggleLang } = useContext(LangContext);
 
   return (
     <>
